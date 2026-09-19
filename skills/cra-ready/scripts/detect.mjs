@@ -400,7 +400,9 @@ function audit(root, index, today) {
 
   auditSbom(root, index, findings, add);
   auditCvd(root, index, securityPath, securityText, userDocs, today, add);
-  auditReporting(securityPath, securityText, userDocs, add);
+  // The README is excluded from the Article 14 evidence on purpose — see the
+  // comment on auditReporting.
+  auditReporting(securityPath, [securityText, supportText, docsText].join('\n'), add);
   auditAdvisories(userDocs, changelogText, userDocLabel, readmePath, add);
   auditUserInformation(index, userDocs, userDocLabel, readmePath, today, add);
   auditScope(index, add);
@@ -586,16 +588,30 @@ function auditCvd(root, index, securityPath, securityText, userDocs, today, add)
 
 // ---- Article 14: the reporting clock, live since 11 September 2026 -------
 
-function auditReporting(securityPath, securityText, userDocs, add) {
-  const namesChannel = /\bENISA\b|\bCSIRT\b|single reporting platform/i.test(userDocs);
-  const namesClock = /\b24\s*(hours?|h)\b/i.test(userDocs) && /\b72\s*(hours?|h)\b/i.test(userDocs);
+/**
+ * Deliberately does NOT read the README.
+ *
+ * Found by running this tool on its own repository after publishing it: the
+ * README explains what Article 14 requires, so the check read its own sales
+ * copy as evidence of a procedure and fell silent. It generalises past the
+ * self-referential case — any repository shipping documentation *about* the
+ * CRA would suppress the finding the same way.
+ *
+ * The narrowing is also right on the merits. A README describes a product to
+ * someone deciding whether to use it. A procedure tells a named person what to
+ * file, where, within 24 hours, on the worst day of the year. One buried in a
+ * README is not a procedure anyone will find at 3am.
+ */
+function auditReporting(securityPath, procedureDocs, add) {
+  const namesChannel = /\bENISA\b|\bCSIRT\b|single reporting platform/i.test(procedureDocs);
+  const namesClock = /\b24\s*(hours?|h)\b/i.test(procedureDocs) && /\b72\s*(hours?|h)\b/i.test(procedureDocs);
 
   if (!namesChannel || !namesClock) {
     add({
       artifact: 'Article 14 reporting procedure', file: securityPath, line: null,
       rule: 'reporting-procedure-missing', ref: 'Art. 14(1)-(4)', obligation: 'Reporting of actively exploited vulnerabilities',
       applies_from: FROM_REPORTING, severity: 'missing',
-      message: 'No documented procedure for the Article 14 reporting deadlines: the repository names neither the channel (ENISA Single Reporting Platform / national CSIRT) nor the 24-hour and 72-hour windows.',
+      message: 'No documented procedure for the Article 14 reporting deadlines: no policy or documentation file names both the channel (ENISA Single Reporting Platform / national CSIRT) and the 24-hour and 72-hour windows. A mention in the README does not count: a procedure has to be findable by the person filing, not by someone evaluating the product.',
       fix: 'Write the procedure down before you need it: early warning to the CSIRT and ENISA within 24 hours of becoming aware of an actively exploited vulnerability, notification within 72 hours, final report within 14 days. This obligation is already in force; the 24-hour clock is not a deadline anyone meets by improvising.',
     });
   }

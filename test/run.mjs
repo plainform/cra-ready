@@ -83,6 +83,16 @@ check('...and is not audited as one', has(bare, 'sbom-missing-dependencies') ? 1
 // cosign: a securityscorecards.dev badge URL was read as a reporting channel.
 check('a scorecard badge is not a reporting contact', has(partial, 'cvd-no-contact') ? 1 : 0, 1);
 
+// --- a README that explains the CRA is not a procedure ----------------------
+// Found by running the tool on its own repository after publishing it: the
+// README names ENISA and the 24/72-hour windows because it explains the
+// obligation, and the check read that as evidence of a procedure. Any project
+// shipping documentation about the CRA would have silenced it the same way.
+console.log('\na README that describes the obligation is not evidence of a procedure:');
+const explainer = scan('readme-explains-cra');
+check('the gap is still reported', has(explainer, 'reporting-procedure-missing') ? 1 : 0, 1);
+check('...and counted as enforceable today', explainer.enforceable_now, 1);
+
 // --- every finding must be traceable to the regulation ----------------------
 console.log('\nevery finding must carry its citation and its phase-in date:');
 const all = [...conformant.findings, ...bare.findings, ...partial.findings];
