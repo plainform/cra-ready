@@ -118,6 +118,16 @@ const claimed = readme.match(/(\d+)\*{0,2} checks\*{0,2} across/);
 check('rules defined in detect.mjs', ruleCount, 20);
 check('rule count claimed in README', claimed ? Number(claimed[1]) : -1, ruleCount);
 
+// --- a call to action must lead somewhere that takes money ------------------
+// Traffic sent to a page with no working checkout is traffic thrown away. The
+// sibling product shipped a README whose Pro section existed before the
+// checkout did; the rule that came out of it is that the button goes in when
+// the checkout exists, not before. This asserts it instead of remembering it.
+console.log('\na purchase link must be a working checkout:');
+const cta = /\[Get cra-ready Pro/.test(readme);
+const checkout = /https:\/\/(buy\.polar\.sh|polar\.sh\/[^)\s]*\/)/.test(readme);
+check('no call to action without a checkout URL', cta && !checkout ? 1 : 0, 0);
+
 // --- the npm package must be coherent with the repo -------------------------
 console.log('\nthe npm package must be coherent with the repo:');
 const pkg = JSON.parse(readFileSync(join(here, '..', 'package.json'), 'utf8'));
