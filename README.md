@@ -98,6 +98,11 @@ becomes enforceable. The full rule list — including an explicit account of
 No legal advice. Whether the CRA applies to your product at all, which class it
 falls in, and how to answer an authority are questions for a professional.
 
+If you want the regulation itself explained before the tool: [what applies and
+when](https://plainform.github.io/cra/), [the Article 14 reporting
+deadlines](https://plainform.github.io/cra/article-14-reporting/), and [what
+the SBOM requirement actually asks for](https://plainform.github.io/cra/sbom/).
+
 ## Install
 
 ```
