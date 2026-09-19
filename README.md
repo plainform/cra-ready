@@ -202,6 +202,8 @@ private GitHub repository, granted automatically on purchase — no licence key,
 no telemetry, no network calls. Runs entirely on your machine, like the free
 tier.
 
+**[Get cra-ready Pro →](https://buy.polar.sh/polar_cl_WUMBvOIUaondwQEhkTgzS9IbwYgvG2g79nIjB0BWVhZ)**
+
 The same limit stated above applies to Pro: it is repository evidence, not a
 conformity assessment, and every document it drafts is marked as a draft
 requiring human review and signature. No tool can establish legal conformity,
