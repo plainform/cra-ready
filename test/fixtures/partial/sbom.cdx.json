@@ -1,0 +1,24 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:9a2b4c11-7d0e-4f20-8a11-0c4f8d2e6b30",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-02-14T08:00:00Z",
+    "component": {
+      "type": "application",
+      "name": "acme-edge",
+      "version": "1.0.0",
+      "purl": "pkg:npm/acme-edge@1.0.0"
+    }
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "fastify",
+      "version": "4.25.0",
+      "purl": "pkg:npm/fastify@4.25.0",
+      "licenses": [{ "license": { "id": "MIT" } }]
+    }
+  ]
+}

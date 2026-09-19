@@ -1,0 +1,12 @@
+{
+  "name": "cra-ready",
+  "description": "Cyber Resilience Act conformance tooling: the evidence a repository must be able to produce, and the artefacts that produce it.",
+  "owner": { "name": "Francesco Correnti", "url": "https://github.com/plainform" },
+  "plugins": [
+    {
+      "name": "cra-ready",
+      "source": "./",
+      "description": "Find the EU Cyber Resilience Act gaps in a repository: SBOM, disclosure policy, Article 14 reporting readiness, Annex II user information."
+    }
+  ]
+}

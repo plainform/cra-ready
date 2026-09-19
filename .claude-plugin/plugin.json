@@ -1,0 +1,10 @@
+{
+  "name": "cra-ready",
+  "description": "Check a repository against the EU Cyber Resilience Act (Regulation (EU) 2024/2847): SBOM, coordinated vulnerability disclosure, Article 14 reporting readiness and the Annex II user information, each finding mapped to its article or annex point and to the date it becomes enforceable.",
+  "version": "0.1.0",
+  "author": { "name": "Francesco Correnti", "url": "https://github.com/plainform" },
+  "homepage": "https://github.com/plainform/cra-ready",
+  "repository": "https://github.com/plainform/cra-ready",
+  "keywords": ["cra", "cyber-resilience-act", "sbom", "cyclonedx", "spdx", "compliance", "security", "vulnerability-disclosure", "audit"],
+  "license": "MIT"
+}

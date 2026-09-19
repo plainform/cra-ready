@@ -1,0 +1,45 @@
+{
+  "name": "cra-ready",
+  "version": "0.1.0",
+  "description": "Check a repository against the EU Cyber Resilience Act (Regulation (EU) 2024/2847): SBOM coverage, coordinated vulnerability disclosure, Article 14 reporting readiness, Annex II user information. Every finding carries its article or annex point and the date it becomes enforceable. Zero dependencies.",
+  "bin": {
+    "cra-ready": "skills/cra-ready/scripts/detect.mjs"
+  },
+  "keywords": [
+    "cra",
+    "cyber-resilience-act",
+    "eu-regulation",
+    "2024-2847",
+    "sbom",
+    "cyclonedx",
+    "spdx",
+    "security-txt",
+    "rfc9116",
+    "vulnerability-disclosure",
+    "compliance",
+    "audit",
+    "ci",
+    "supply-chain"
+  ],
+  "homepage": "https://github.com/plainform/cra-ready#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plainform/cra-ready.git"
+  },
+  "bugs": {
+    "url": "https://github.com/plainform/cra-ready/issues"
+  },
+  "author": "Francesco Correnti (https://github.com/plainform)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "skills/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node test/run.mjs"
+  }
+}

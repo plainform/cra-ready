@@ -1,0 +1,6 @@
+Contact: mailto:security@acmegateway.nl
+Contact: https://github.com/acme-digital/gateway/security/advisories/new
+Expires: 2027-06-30T23:59:00.000Z
+Preferred-Languages: en, nl
+Policy: https://acmegateway.nl/SECURITY.md
+Canonical: https://acmegateway.nl/.well-known/security.txt
